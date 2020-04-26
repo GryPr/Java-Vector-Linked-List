@@ -33,6 +33,14 @@ public class List {
         index = i;
     }
 
+    public void setCurrentIndex(int i){
+        currentIndex = i;
+    }
+
+    public int getCurrentIndex(){
+        return currentIndex;
+    }
+
     public List getPrevious(){
         return previous;
     }

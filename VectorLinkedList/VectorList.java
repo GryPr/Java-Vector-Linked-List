@@ -14,8 +14,24 @@ public class VectorList {
         start = s;
     }
 
-    public void appendVector(){
+    public List createVector(List p, int x, int y, int z){
+        List veclist = new List(p, x, y, z);
+        return veclist;
+    }
 
+    public void insertVectorByIndex(int index, int indexNext, int x, int y, int z){
+    }
+
+    public void appendVector(int x, int y, int z){
+        List endVector = getEndVector();
+        createVector(endVector, x, y, z);
+    }
+
+    public void removeLastVector(){
+        List last = getEndVector();
+        List beforeLast = last.getPrevious();
+        beforeLast.setNext(null);
+        beforeLast.setCurrentIndex(beforeLast.getCurrentIndex()-1);
     }
 
     public List getIndexedVector(int in){
@@ -31,5 +47,14 @@ public class VectorList {
         }
         // Returns null if not found
         return null;
+    }
+
+    public List getEndVector(){
+        List next = start;
+        // Looping through the linked list
+        while (next != null){
+            next = next.getNext();
+        }
+        return next;
     }
 }
